@@ -1,9 +1,14 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigation } from "react-router-dom";
 import CartOverview from "../features/cart/CartOverview";
+import Loader from "./Loader";
+
 
 const AppLayout = () => {
+  const navigation = useNavigation();
+  const isLoading = navigation.state === "loading";
   return (
-    <>
+    <div className="layout">
+      {isLoading && <Loader />}
       <header>
         <Link to="/">Fast React Pizza</Link>
       </header>
@@ -11,7 +16,7 @@ const AppLayout = () => {
         <Outlet />
       </main>
       <CartOverview />
-    </>
+    </div>
   );
 };
 
