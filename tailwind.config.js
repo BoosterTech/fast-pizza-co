@@ -7,9 +7,6 @@ export default {
     },
 
     extend: {
-      colors: {
-        pizza: "#123456",
-      },
       height: {
         screen: "100dvh",
       },
