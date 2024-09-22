@@ -3,10 +3,11 @@ import LinkButton from "../../ui/LinkButton";
 import Button from "../../ui/Button";
 import { useSelector } from "react-redux";
 import { getCart } from "./cartSlice";
+import { getUser } from "../user/userSlice";
 
 function Cart() {
   const cart = useSelector(getCart);
-  const username = useSelector((state) => state.user.username);
+  const username = useSelector(getUser);
 
   return (
     <div className="px-4 py-3">
