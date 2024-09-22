@@ -19,7 +19,6 @@ const cartSlice = createSlice({
     addItem(state, action) {
       //payload=newItem
       state.cart.push(action.payload);
-      console.log(state.cart);
     },
     deleteItem(state, action) {
       //payload=ipizzaId
@@ -55,5 +54,8 @@ export const {
 
 export default cartSlice.reducer;
 
-export const getTotalCartPrice = (state) =>
+export const getTotalCartQuantity = (state) =>
   state.cart.cart.reduce((sum, item) => sum + item.quantity, 0);
+
+export const getTotalCartPrice = (state) =>
+  state.cart.cart.reduce((sum, item) => sum + item.totalPrice, 0); //look into reselect library for optimization
