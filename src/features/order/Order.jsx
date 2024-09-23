@@ -55,6 +55,7 @@ function Order() {
     estimatedDelivery,
     cart,
   } = order;
+
   const deliveryIn = calcMinutesLeft(estimatedDelivery);
 
   return (
@@ -87,7 +88,7 @@ function Order() {
 
       <ul className="divide-y border-b border-t ">
         {cart.map((item) => (
-          <OrderItem item={item} key={item.id}></OrderItem>
+          <OrderItem item={item} key={item.pizzaIdd}></OrderItem>
         ))}
       </ul>
 
