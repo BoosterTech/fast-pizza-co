@@ -117,6 +117,15 @@ function CreateOrder() {
 
         <div>
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
+          <input
+            type="hidden"
+            name="position"
+            value={
+              position.longitude && position.latitude
+                ? `${position.latitude}, ${position.longitude}`
+                : ""
+            }
+          />
           <Button disabled={isSubmitting || isLoadingAddress}>
             {isSubmitting
               ? "Placing order..."
@@ -137,6 +146,8 @@ export async function action({ request }) {
     cart: JSON.parse(data.cart),
     priority: data.priority === "true",
   };
+
+  console.log(order);
 
   const errors = {};
   if (!isValidPhone(order.phone))
