@@ -8,6 +8,8 @@ import {
   formatCurrency,
   formatDate,
 } from "../../utils/helpers";
+import { useFetcher } from "react-router-dom";
+import { useEffect } from "react";
 
 const order = {
   id: "ABCDEF",
@@ -56,6 +58,17 @@ function Order() {
     cart,
   } = order;
 
+  const fetcher = useFetcher();
+
+  useEffect(
+    function () {
+      if (!fetcher.data && fetcher.state === "idle") fetcher.load("/menu");
+    },
+    [fetcher],
+  );
+
+  console.log(fetcher.data);
+
   const deliveryIn = calcMinutesLeft(estimatedDelivery);
 
   return (
@@ -86,9 +99,16 @@ function Order() {
         </p>
       </div>
 
-      <ul className="divide-y border-b border-t ">
+      <ul className="divide-y border-b border-t">
         {cart.map((item) => (
-          <OrderItem item={item} key={item.pizzaId}></OrderItem>
+          <OrderItem
+            item={item}
+            key={item.pizzaId}
+            isLoadingIngredients={fetcher.state === "loading"}
+            ingredients={
+              fetcher?.data?.find((el) => el.id === item.pizzaId)?.ingredients ?? []
+            }
+          ></OrderItem>
         ))}
       </ul>
 
