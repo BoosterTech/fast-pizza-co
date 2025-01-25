@@ -16,7 +16,7 @@ import Error from "./ui/Error";
 import { loader as menuLoader } from "./features/menu/Menu";
 import { action as updateOrderAction } from "./features/order/UpdateOrder";
 
-const basename = "/Fast-Pizza-Co/";
+const basename = "/Fast-Pizza-Co";
 
 const router = createBrowserRouter([
   {
