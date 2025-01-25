@@ -1,4 +1,8 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
 import Home from "./ui/Home";
 import Menu from "./features/menu/Menu";
@@ -11,6 +15,8 @@ import AppLayout from "./ui/AppLayout";
 import Error from "./ui/Error";
 import { loader as menuLoader } from "./features/menu/Menu";
 import { action as updateOrderAction } from "./features/order/UpdateOrder";
+
+const basename = "/Fast-Pizza-Co";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +54,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <BrowserRouter basename={basename}>
+      <RouterProvider router={router} />
+    </BrowserRouter>
+  );
 }
 
 export default App;
