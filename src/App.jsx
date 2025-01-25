@@ -1,5 +1,4 @@
 import {
-  BrowserRouter,
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
@@ -22,7 +21,6 @@ const router = createBrowserRouter([
   {
     element: <AppLayout />,
     errorElement: <Error />,
-
     children: [
       {
         path: "/",
@@ -55,9 +53,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <BrowserRouter basename={basename}>
-      <RouterProvider router={router} />
-    </BrowserRouter>
+    <RouterProvider router={router} basename={basename} />
   );
 }
 
