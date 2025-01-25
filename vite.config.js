@@ -7,6 +7,6 @@ export default defineConfig({
   plugins: [react()],
   base: "/Fast-Pizza-Co/",
   build: {
-    outDir: "docs",
+    outDir: "build",
   },
 });
