@@ -15,7 +15,7 @@ import Error from "./ui/Error";
 import { loader as menuLoader } from "./features/menu/Menu";
 import { action as updateOrderAction } from "./features/order/UpdateOrder";
 
-const basename = "/";
+
 
 const router = createBrowserRouter([
   {
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: "/fast-pizza-co",
+        path: "/fast-pizza-co/",
         element: <Home />,
       },
       {
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <RouterProvider router={router} basename={basename} />
+    <RouterProvider router={router}  />
   );
 }
 
