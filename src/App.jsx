@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: "/fast-pizza-co",
+        path: "/",
         element: <Home />,
       },
       {
@@ -48,6 +48,7 @@ const router = createBrowserRouter([
         action: updateOrderAction,
       },
     ],
+    basename:"fast-pizza-co/"
   },
 ]);
 
