@@ -10,7 +10,7 @@ const AppLayout = () => {
   return (
     <div className="grid h-screen grid-rows-[auto_1fr_auto]">
       <header className="flex items-center justify-between border-b border-stone-500 bg-yellow-500 px-4 py-3 uppercase">
-        <Link to="/" className="tracking-widest">
+        <Link to="/fast-pizza-co" className="tracking-widest">
           Fast React Pizza
         </Link>
         <SearchOrder />
